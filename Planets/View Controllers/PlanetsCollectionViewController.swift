@@ -15,6 +15,12 @@ class PlanetsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        collectionView.reloadData()
+    }
 
     // MARK: UICollectionViewDataSource
 
