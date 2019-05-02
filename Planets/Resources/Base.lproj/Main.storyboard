@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,12 +82,67 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="pcz-32-zo2">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ymo-Ql-Wqo"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ymo-Ql-Wqo">
+                            <connections>
+                                <segue destination="YIq-La-IYE" kind="presentation" identifier="ShowSettings" id="dmg-Vf-c0S"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUk-as-8pQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1000.0000000000001" y="139.95535714285714"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="VOU-5I-xoU">
+            <objects>
+                <viewController id="YIq-La-IYE" customClass="SettingsViewController" customModule="Planets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gSp-w5-1q2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMX-g5-NGZ">
+                                <rect key="frame" x="361" y="60" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="YIq-La-IYE" eventType="touchUpInside" id="5wC-pd-Bej"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="102" translatesAutoresizingMaskIntoConstraints="NO" id="lDy-yJ-ddf">
+                                <rect key="frame" x="16" y="98" width="382" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should Pluto be a planet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZX-oV-xTg">
+                                        <rect key="frame" x="0.0" y="0.0" width="231" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jg4-vk-sUA">
+                                        <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="plutoSwitchValueChanged:" destination="YIq-La-IYE" eventType="valueChanged" id="Osu-Ky-iUs"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MMX-g5-NGZ" firstAttribute="top" secondItem="QmK-Cn-K6p" secondAttribute="top" constant="16" id="Leb-9U-pR1"/>
+                            <constraint firstItem="QmK-Cn-K6p" firstAttribute="trailing" secondItem="lDy-yJ-ddf" secondAttribute="trailing" constant="16" id="Xww-Uk-aYi"/>
+                            <constraint firstItem="lDy-yJ-ddf" firstAttribute="leading" secondItem="QmK-Cn-K6p" secondAttribute="leading" constant="16" id="brp-PG-hnp"/>
+                            <constraint firstItem="lDy-yJ-ddf" firstAttribute="top" secondItem="MMX-g5-NGZ" secondAttribute="bottom" constant="8" id="kW3-KN-Oe2"/>
+                            <constraint firstItem="QmK-Cn-K6p" firstAttribute="trailing" secondItem="MMX-g5-NGZ" secondAttribute="trailing" constant="16" id="lqn-eQ-FVc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QmK-Cn-K6p"/>
+                    </view>
+                    <connections>
+                        <outlet property="plutoSwitch" destination="jg4-vk-sUA" id="laQ-Qw-4UD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trc-vu-fAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="140"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="reI-Yg-L9A">
